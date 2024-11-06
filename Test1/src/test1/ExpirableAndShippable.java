@@ -14,12 +14,12 @@ public class ExpirableAndShippable extends Product implements Expirable, Shippab
 
     @Override
     public Date getExpiryDate() {
-        return null;
+        return expiryDate;
     }
 
     @Override
     public boolean isExpired() {
-        return false;
+        return new Date().after(expiryDate);
     }
 
     @Override
