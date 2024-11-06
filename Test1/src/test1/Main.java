@@ -70,13 +70,15 @@ public class Main {
          */
         try {
             Expirableproduct milk = new Expirableproduct("Milk", 20, 10, new Date(System.currentTimeMillis() + 1000));
-            ShippableProduct tv = new ShippableProduct("TV", 500, 5, 15.0);
+            ShippableProduct tv = new ShippableProduct("TV", 500, 5, 15000.0);
             Product scratchCard = new Product("Mobile Scratch Card", 50, 20);
+            ExpirableAndShippable cheese = new ExpirableAndShippable("cheese", 20, 15, 20.0, new Date(System.currentTimeMillis() + 1000));
             Customer customer = new Customer("OMAR", 10000);
             Cart cart = new Cart();
             cart.addItem(milk, 10);
             cart.addItem(tv, 5);
             cart.addItem(scratchCard, 15);
+            cart.addItem(cheese, 1);
             CheckoutService checkoutService = new CheckoutService();
            checkoutService.checkout(customer, cart);
         } catch (Exception e) {
